@@ -7,4 +7,5 @@
     <string name="notes">Notes.</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="edit_note">Edit_Note</string>
 </resources>
