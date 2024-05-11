@@ -1,9 +1,18 @@
 package com.example.taskmanagementapp
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.example.taskmanagementapp.databinding.ActivityUpdateNoteBinding
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
+
+private lateinit var updateTextDate: TextView
+private lateinit var updateButtonDate: Button
 
 class UpdateNoteActivity : AppCompatActivity() {
 
@@ -35,5 +44,32 @@ class UpdateNoteActivity : AppCompatActivity() {
             finish()
             Toast.makeText(this,"Changes Saved",Toast.LENGTH_SHORT).show()
         }
+
+        updateTextDate = findViewById(R.id.updateTextDate)
+        updateButtonDate = findViewById(R.id.updateButtonDate)
+
+        val calendarBox = Calendar.getInstance()
+        val dateBox = DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+            calendarBox.set(Calendar.YEAR, year)
+            calendarBox.set(Calendar.MONTH, month)
+            calendarBox.set(Calendar.DAY_OF_MONTH, day)
+
+            updateText(calendarBox)
+        }
+        updateButtonDate.setOnClickListener {
+            DatePickerDialog(
+                this,
+                dateBox,
+                calendarBox.get(Calendar.YEAR),
+                calendarBox.get(Calendar.MONTH),
+                calendarBox.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+    }
+
+    private fun updateText(calendar: Calendar) {
+        val dateFormat = "dd-MM-yyyy"
+        val simple = SimpleDateFormat(dateFormat, Locale.UK)
+        updateTextDate.text = simple.format(calendar.time)
     }
 }

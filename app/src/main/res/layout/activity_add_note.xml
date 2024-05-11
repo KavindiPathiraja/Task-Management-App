@@ -63,7 +63,7 @@
         android:textColor="@color/orange"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/contentEditText"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="16dp"/>
 
 
     <Button
@@ -71,10 +71,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDate"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="change Date"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/priorityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priority"
+        android:textSize="18sp"
+        android:textColor="@color/orange"
+        android:fontFamily="@font/poppins"
+        android:layout_below="@+id/buttonDate"
+        android:layout_marginTop="16dp"/>
+
+    <Spinner
+        android:id="@+id/priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/priorityText"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins"/>
+
 
 </RelativeLayout>
