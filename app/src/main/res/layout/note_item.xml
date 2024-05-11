@@ -65,6 +65,27 @@
             android:layout_marginTop="4dp"
             android:layout_marginStart="30dp"/>
 
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date"
+            android:fontFamily="@font/poppins"
+            android:maxLines="3"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/priorityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="priority"
+            android:fontFamily="@font/poppins"
+            android:maxLines="3"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="30dp"/>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -21,6 +21,7 @@ class UpdateNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUpdateNoteBinding
     private lateinit var db: NoteDatabaseHelper
     private var noteId: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateNoteBinding.inflate(layoutInflater)
@@ -37,25 +38,37 @@ class UpdateNoteActivity : AppCompatActivity() {
         val note = db.getNoteByID(noteId)
         binding.updateTitleEditText.setText(note.title)
         binding.updateContentEditText.setText(note.content)
+        binding.updateTextDate.setText(note.date) // Set the date text instead of content text
+        val priorityArray = resources.getStringArray(R.array.priority_array)
+        val priorityIndex = priorityArray.indexOf(note.priority)
+
+        // Setting up spinner
+        val priorityId = binding.updatePriority
+        val priorities = arrayOf("High", "Medium", "Low")
+        val arrayAdp = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, priorities)
+        priorityId.adapter = arrayAdp
+
+        binding.updatePriority.setSelection(priorityIndex)
 
         binding.updateSaveButton.setOnClickListener{
             val newTitle = binding.updateTitleEditText.text.toString()
             val newContent = binding.updateContentEditText.text.toString()
-            val updatedNote = Note(noteId, newTitle, newContent)
+            val newDate = binding.updateTextDate.text.toString()
+            val newPriority = binding.updatePriority.selectedItem.toString()
+            val updatedNote = Note(noteId, newTitle, newContent, newDate, newPriority) // Preserve date and priority
             db.updateNote(updatedNote)
             finish()
             Toast.makeText(this,"Changes Saved",Toast.LENGTH_SHORT).show()
         }
 
+        // Setting up date picker
         updateTextDate = findViewById(R.id.updateTextDate)
         updateButtonDate = findViewById(R.id.updateButtonDate)
-
         val calendarBox = Calendar.getInstance()
-        val dateBox = DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+        val dateBox = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
             calendarBox.set(Calendar.YEAR, year)
             calendarBox.set(Calendar.MONTH, month)
-            calendarBox.set(Calendar.DAY_OF_MONTH, day)
-
+            calendarBox.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateText(calendarBox)
         }
         updateButtonDate.setOnClickListener {
@@ -67,19 +80,11 @@ class UpdateNoteActivity : AppCompatActivity() {
                 calendarBox.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
-
-        //spinner
-        val priorityId = findViewById<Spinner>(R.id.updatePriority)
-
-        val priorities = arrayOf("High","Medium","Low")
-        val arrayAdp = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,priorities)
-        priorityId.adapter = arrayAdp
-
     }
 
     private fun updateText(calendar: Calendar) {
         val dateFormat = "dd-MM-yyyy"
         val simple = SimpleDateFormat(dateFormat, Locale.UK)
-        updateTextDate.text = simple.format(calendar.time)
+        binding.updateTextDate.text = simple.format(calendar.time)
     }
 }

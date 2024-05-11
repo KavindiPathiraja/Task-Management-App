@@ -33,12 +33,15 @@ class AddNoteActivity : AppCompatActivity() {
         binding.saveButton.setOnClickListener {
             val title = binding.titleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
-            val note = Note(0, title, content)
+            val date = binding.textDate.text.toString()
+            val priority = binding.priority.selectedItem.toString()
+            val note = Note(0, title, content,date,priority)
             db.insertNote(note)
             finish()
             Toast.makeText(this, "Note Saved", Toast.LENGTH_SHORT).show()
         }
 
+        //date
         textDate = findViewById(R.id.textDate)
         buttonDate = findViewById(R.id.buttonDate)
 

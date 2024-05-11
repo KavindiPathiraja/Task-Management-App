@@ -17,6 +17,8 @@ class NotesAdapter(private var notes: List<Note>, context: Context):
         class NoteViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
             val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
             val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
+            val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
+            val priorityTextView: TextView = itemView.findViewById(R.id.priorityTextView)
             val updateButton: ImageView = itemView.findViewById(R.id.updateButton)
             val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
         }
@@ -32,6 +34,8 @@ class NotesAdapter(private var notes: List<Note>, context: Context):
         val note = notes[position]
         holder.titleTextView.text = note.title
         holder.contentTextView.text = note.content
+        holder.dateTextView.text = note.date
+        holder.priorityTextView.text = note.priority
 
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context,UpdateNoteActivity::class.java).apply {
