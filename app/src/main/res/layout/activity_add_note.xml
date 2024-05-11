@@ -43,16 +43,38 @@
 
     <EditText
         android:id="@+id/contentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/enter_the_description"
-        android:gravity="top"
-        android:padding="12dp"
-        android:textSize="18sp"
-        android:fontFamily="@font/poppins"
-        android:background="@drawable/orange_border"
+        android:layout_width="383dp"
+        android:layout_height="269dp"
         android:layout_below="@+id/titleEditText"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/orange_border"
+        android:fontFamily="@font/poppins"
+        android:gravity="top"
+        android:hint="@string/enter_the_description"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd/mm/yyyy"
+        android:textSize="18sp"
+        android:textColor="@color/orange"
+        android:fontFamily="@font/poppins"
+        android:layout_below="@+id/contentEditText"
         android:layout_marginTop="12dp"/>
 
+
+    <Button
+        android:id="@+id/buttonDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDate"
+        android:layout_marginTop="12dp"
+        android:text="change Date"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins"/>
 
 </RelativeLayout>

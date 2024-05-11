@@ -43,8 +43,8 @@
 
     <EditText
         android:id="@+id/updateContentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="383dp"
+        android:layout_height="269dp"
         android:hint="@string/enter_the_description"
         android:gravity="top"
         android:padding="12dp"
