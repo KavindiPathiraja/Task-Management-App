@@ -64,16 +64,41 @@
         android:textColor="@color/orange"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/updateContentEditText"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="32dp"/>
 
 
     <Button
         android:id="@+id/updateButtonDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/updateTextDate"
-        android:layout_marginTop="12dp"
+        android:layout_alignTop="@+id/updateTextDate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp"
         android:text="change Date"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/priorityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priority"
+        android:textSize="18sp"
+        android:textColor="@color/orange"
+        android:fontFamily="@font/poppins"
+        android:layout_below="@+id/updateButtonDate"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="32dp"/>
+
+    <Spinner
+        android:id="@+id/updatePriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/priorityText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"/>

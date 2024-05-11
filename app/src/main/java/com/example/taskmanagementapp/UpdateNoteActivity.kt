@@ -3,7 +3,9 @@ package com.example.taskmanagementapp
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import com.example.taskmanagementapp.databinding.ActivityUpdateNoteBinding
@@ -65,6 +67,14 @@ class UpdateNoteActivity : AppCompatActivity() {
                 calendarBox.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+
+        //spinner
+        val priorityId = findViewById<Spinner>(R.id.updatePriority)
+
+        val priorities = arrayOf("High","Medium","Low")
+        val arrayAdp = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,priorities)
+        priorityId.adapter = arrayAdp
+
     }
 
     private fun updateText(calendar: Calendar) {

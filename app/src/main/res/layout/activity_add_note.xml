@@ -63,15 +63,17 @@
         android:textColor="@color/orange"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/contentEditText"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="32dp"/>
 
 
     <Button
         android:id="@+id/buttonDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textDate"
-        android:layout_marginTop="16dp"
+        android:layout_alignTop="@+id/textDate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp"
         android:text="change Date"
         android:textSize="16sp"
         android:textColor="@color/white"
@@ -86,14 +88,16 @@
         android:textColor="@color/orange"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/buttonDate"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="32dp"/>
 
     <Spinner
         android:id="@+id/priority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/priorityText"
-        android:layout_marginTop="16dp"
+        android:layout_alignTop="@id/priorityText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"/>
