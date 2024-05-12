@@ -18,8 +18,9 @@
     android:fontFamily="@font/poppins"
     android:text="Tasks"
     android:layout_marginStart="18dp"
-    android:textColor="@color/pink"
+    android:textColor="@color/title"
     android:textSize="24sp"/>
+
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/notesRecyclerView"
@@ -44,4 +45,5 @@
 
 
 
-  </RelativeLayout>
+
+</RelativeLayout>

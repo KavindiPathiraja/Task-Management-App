@@ -17,7 +17,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Add Task"
-        android:textColor="@color/pink"
+        android:textColor="@color/title"
         android:textSize="24sp" />
 
     <ImageView
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="dd/mm/yyyy"
         android:textSize="18sp"
-        android:textColor="@color/pink"
+        android:textColor="@color/white"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/contentEditText"
         android:layout_marginTop="42dp"
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="Priority"
         android:textSize="18sp"
-        android:textColor="@color/pink"
+        android:textColor="@color/white"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/buttonDate"
         android:layout_marginTop="42dp"

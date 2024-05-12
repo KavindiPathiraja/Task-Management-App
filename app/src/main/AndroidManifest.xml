@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/icon"
+        android:label="TASK EASE"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManagementApp"
         tools:targetApi="31">
@@ -20,7 +20,11 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false"> <!-- Set exported to false -->
+        </activity>
+        <activity
+            android:name=".LaunchActivity"
+            android:exported="true"> <!-- Set exported to true -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

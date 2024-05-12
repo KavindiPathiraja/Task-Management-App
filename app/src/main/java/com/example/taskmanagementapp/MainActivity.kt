@@ -33,5 +33,4 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         notesAdapter.refreshData(db.getAllNotes())
     }
-
 }

@@ -56,6 +56,4 @@ class NotesAdapter(private var notes: List<Note>, context: Context):
         notifyDataSetChanged()
     }
 
-
-
 }
