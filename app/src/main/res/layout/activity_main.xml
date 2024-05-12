@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/back">
 
 
   <TextView
@@ -15,9 +16,9 @@
     android:layout_alignParentTop="true"
     android:layout_marginTop="16dp"
     android:fontFamily="@font/poppins"
-    android:text="@string/notes"
+    android:text="Tasks"
     android:layout_marginStart="18dp"
-    android:textColor="@color/orange"
+    android:textColor="@color/pink"
     android:textSize="24sp"/>
 
   <androidx.recyclerview.widget.RecyclerView
@@ -38,9 +39,8 @@
       android:layout_marginEnd="16dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="16dp"
-      android:src="@drawable/add"
-      android:tint="@color/orange"
-      android:backgroundTint="@color/orange" />
+      android:src="@drawable/add3"
+      android:backgroundTint="@color/pink" />
 
 
 

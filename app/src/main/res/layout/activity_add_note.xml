@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".AddNoteActivity">
+    tools:context=".AddNoteActivity"
+    android:background="@drawable/back">
 
     <TextView
         android:id="@+id/addNoteHeading"
@@ -15,8 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="@string/add_note"
-        android:textColor="@color/orange"
+        android:text="Add Task"
+        android:textColor="@color/pink"
         android:textSize="24sp" />
 
     <ImageView
@@ -33,10 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="@string/enter_the_title"
+        android:textColorHint="@color/white"
         android:padding="12dp"
         android:textSize="20sp"
         android:layout_below="@+id/addNoteHeading"
-        android:background="@drawable/orange_border"
+        android:background="@drawable/pink_border"
         android:layout_marginTop="16dp"
         android:maxLines="1"
         android:fontFamily="@font/poppins"/>
@@ -47,10 +49,11 @@
         android:layout_height="269dp"
         android:layout_below="@+id/titleEditText"
         android:layout_marginTop="12dp"
-        android:background="@drawable/orange_border"
+        android:background="@drawable/pink_border"
         android:fontFamily="@font/poppins"
         android:gravity="top"
         android:hint="@string/enter_the_description"
+        android:textColorHint="@color/white"
         android:padding="12dp"
         android:textSize="18sp" />
 
@@ -60,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="dd/mm/yyyy"
         android:textSize="18sp"
-        android:textColor="@color/orange"
+        android:textColor="@color/pink"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/contentEditText"
         android:layout_marginTop="42dp"
@@ -74,10 +77,11 @@
         android:layout_alignTop="@+id/textDate"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp"
+        android:backgroundTint="@color/pink"
+        android:fontFamily="@font/poppins"
         android:text="change Date"
-        android:textSize="16sp"
         android:textColor="@color/white"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/priorityText"
@@ -85,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="Priority"
         android:textSize="18sp"
-        android:textColor="@color/orange"
+        android:textColor="@color/pink"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/buttonDate"
         android:layout_marginTop="42dp"
@@ -98,8 +102,8 @@
         android:layout_alignTop="@id/priorityText"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textColor="@color/pink"
         android:fontFamily="@font/poppins"/>
 
 
