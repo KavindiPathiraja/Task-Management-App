@@ -1,6 +1,7 @@
 package com.example.taskmanagementapp
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -13,8 +14,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-private lateinit var updateTextDate: TextView
-private lateinit var updateButtonDate: Button
+private lateinit var updateTextDateTime: TextView
+private lateinit var updateButtonDateTime: Button
 
 class UpdateNoteActivity : AppCompatActivity() {
 
@@ -38,7 +39,7 @@ class UpdateNoteActivity : AppCompatActivity() {
         val note = db.getNoteByID(noteId)
         binding.updateTitleEditText.setText(note.title)
         binding.updateContentEditText.setText(note.content)
-        binding.updateTextDate.setText(note.date) // Set the date text instead of content text
+        binding.updateTextDateTime.setText(note.date) // Set the date text instead of content text
         val priorityArray = resources.getStringArray(R.array.priority_array)
         val priorityIndex = priorityArray.indexOf(note.priority)
 
@@ -53,38 +54,54 @@ class UpdateNoteActivity : AppCompatActivity() {
         binding.updateSaveButton.setOnClickListener{
             val newTitle = binding.updateTitleEditText.text.toString()
             val newContent = binding.updateContentEditText.text.toString()
-            val newDate = binding.updateTextDate.text.toString()
+            val newDateTime = binding.updateTextDateTime.text.toString()
             val newPriority = binding.updatePriority.selectedItem.toString()
-            val updatedNote = Note(noteId, newTitle, newContent, newDate, newPriority) // Preserve date and priority
+            val updatedNote = Note(noteId, newTitle, newContent, newDateTime, newPriority) // Preserve date and priority
             db.updateNote(updatedNote)
             finish()
             Toast.makeText(this,"Changes Saved",Toast.LENGTH_SHORT).show()
         }
 
-        // Setting up date picker
-        updateTextDate = findViewById(R.id.updateTextDate)
-        updateButtonDate = findViewById(R.id.updateButtonDate)
-        val calendarBox = Calendar.getInstance()
-        val dateBox = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-            calendarBox.set(Calendar.YEAR, year)
-            calendarBox.set(Calendar.MONTH, month)
-            calendarBox.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            updateText(calendarBox)
+        // Setting up date and time picker
+        updateTextDateTime = findViewById(R.id.updateTextDateTime)
+        updateButtonDateTime = findViewById(R.id.updateButtonDateTime)
+        val calendar = Calendar.getInstance()
+        val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+            calendar.set(Calendar.YEAR, year)
+            calendar.set(Calendar.MONTH, month)
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            showTimePicker(calendar)
         }
-        updateButtonDate.setOnClickListener {
+        updateButtonDateTime.setOnClickListener {
             DatePickerDialog(
                 this,
-                dateBox,
-                calendarBox.get(Calendar.YEAR),
-                calendarBox.get(Calendar.MONTH),
-                calendarBox.get(Calendar.DAY_OF_MONTH)
+                dateListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
     }
 
-    private fun updateText(calendar: Calendar) {
-        val dateFormat = "dd-MM-yyyy"
-        val simple = SimpleDateFormat(dateFormat, Locale.UK)
-        binding.updateTextDate.text = simple.format(calendar.time)
+    private fun showTimePicker(calendar: Calendar) {
+        val timeListener = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+            calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+            calendar.set(Calendar.MINUTE, minute)
+            updateDateTimeText(calendar)
+        }
+
+        TimePickerDialog(
+            this,
+            timeListener,
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(Calendar.MINUTE),
+            true
+        ).show()
+    }
+
+    private fun updateDateTimeText(calendar: Calendar) {
+        val dateTimeFormat = "dd-MM-yyyy HH:mm"
+        val simpleDateTimeFormat = SimpleDateFormat(dateTimeFormat, Locale.UK)
+        updateTextDateTime.text = simpleDateTimeFormat.format(calendar.time)
     }
 }

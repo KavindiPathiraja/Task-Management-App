@@ -57,29 +57,29 @@
         android:padding="12dp"
         android:textSize="18sp" />
 
+
     <TextView
-        android:id="@+id/textDate"
+        android:id="@+id/textDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dd/mm/yyyy"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins"
         android:layout_below="@+id/contentEditText"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="42dp"
-        android:layout_marginStart="32dp"/>
-
+        android:fontFamily="@font/poppins"
+        android:text="dd-MM-yyyy HH:mm"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/buttonDate"
+        android:id="@+id/buttonDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textDate"
+        android:layout_alignTop="@+id/textDateTime"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/pink"
         android:fontFamily="@font/poppins"
-        android:text="change Date"
+        android:text="Date/Time"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -91,7 +91,7 @@
         android:textSize="18sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"
-        android:layout_below="@+id/buttonDate"
+        android:layout_below="@+id/buttonDateTime"
         android:layout_marginTop="42dp"
         android:layout_marginStart="32dp"/>
 
@@ -102,9 +102,10 @@
         android:layout_alignTop="@id/priorityText"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp"
-        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        android:minHeight="48dp"
         android:textColor="@color/pink"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

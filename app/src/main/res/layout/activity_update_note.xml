@@ -59,28 +59,28 @@
 
 
     <TextView
-        android:id="@+id/updateTextDate"
+        android:id="@+id/updateTextDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dd/mm/yyyy"
+        android:text="dd-MM-yyyy HH:mm"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/updateContentEditText"
         android:layout_marginTop="42dp"
-        android:layout_marginStart="32dp"/>
+        android:layout_marginStart="16dp"/>
 
 
     <Button
-        android:id="@+id/updateButtonDate"
+        android:id="@+id/updateButtonDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/updateTextDate"
+        android:layout_alignTop="@+id/updateTextDateTime"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/pink"
         android:fontFamily="@font/poppins"
-        android:text="change Date"
+        android:text="Date/Time"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -92,7 +92,7 @@
         android:textSize="18sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"
-        android:layout_below="@+id/updateButtonDate"
+        android:layout_below="@+id/updateButtonDateTime"
         android:layout_marginTop="42dp"
         android:layout_marginStart="32dp"/>
 
@@ -103,9 +103,10 @@
         android:layout_alignTop="@id/priorityText"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp"
-        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        android:minHeight="48dp"
         android:textColor="@color/pink"
-        android:fontFamily="@font/poppins"/>
+        android:textSize="18sp" />
 
 
 </RelativeLayout>
