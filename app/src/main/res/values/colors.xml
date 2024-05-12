@@ -5,4 +5,6 @@
     <color name="orange">#ed5f1e</color>
     <color name="pink"> #CC3366</color>
     <color name="title"> #f18a5f</color>
+    <color name="notetitle"> #DE6FA1</color>
+
 </resources>

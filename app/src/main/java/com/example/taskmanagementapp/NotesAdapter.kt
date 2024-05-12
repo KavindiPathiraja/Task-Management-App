@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 
 class NotesAdapter(private var notes: List<Note>, context: Context):
@@ -44,11 +45,24 @@ class NotesAdapter(private var notes: List<Note>, context: Context):
             holder.itemView.context.startActivity(intent)
         }
 
-        holder.deleteButton.setOnClickListener{
-            db.deleteNote(note.id)
-            refreshData(db.getAllNotes())
-            Toast.makeText(holder.itemView.context,"Note Deleted",Toast.LENGTH_SHORT).show()
+        holder.deleteButton.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(holder.itemView.context)
+                .setTitle("Confirm Deletion")
+                .setMessage("Are you sure you want to delete this task?")
+                .setPositiveButton("Yes") { _, _ ->
+                    // Delete the note
+                    db.deleteNote(note.id)
+                    refreshData(db.getAllNotes())
+                    Toast.makeText(holder.itemView.context, "Note Deleted", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("No") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .create()
+
+            alertDialog.show()
         }
+
     }
 
     fun refreshData(newNotes: List<Note>){
