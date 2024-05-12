@@ -67,7 +67,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/poppins"
         android:layout_below="@+id/updateContentEditText"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="64dp"
         android:layout_marginStart="16dp"/>
 
 

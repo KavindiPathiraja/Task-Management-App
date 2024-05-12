@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/contentEditText"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/poppins"
         android:text="dd-MM-yyyy HH:mm"
         android:textColor="@color/white"
